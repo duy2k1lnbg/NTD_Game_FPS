@@ -1,3 +1,5 @@
+Để trải nghiệm game có thể vào thử mục Build_game rồi tải file Game_shooter_3D_unity_multiplayer.exe về Window để chơi thử.
+
 Game hiện tại chơi được trên 2 nền tảng là Window và Linux sau đây là một số lưu ý.
 Phím W: tiến.
 Phím S: lùi.
