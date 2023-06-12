@@ -1,4 +1,4 @@
-Game hiện tại chơi được trên 2 nền tảng là Window và Linux sau đây là một số lưu ý
+Game hiện tại chơi được trên 2 nền tảng là Window và Linux sau đây là một số lưu ý.
 Phím W: tiến
 Phím S: lùi
 Phím A: rẽ trái
