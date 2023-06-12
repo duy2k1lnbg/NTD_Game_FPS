@@ -1,4 +1,4 @@
 Bảng phân chia công việc
-![Alt text](Cv.png)
+![Alt text](img\Cv.png)
 Kết quả chơi thử nghiệm
-![Alt text](image.png)
+![Alt text](img\image.png)
