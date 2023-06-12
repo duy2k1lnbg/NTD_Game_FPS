@@ -46,7 +46,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
         }
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
-        connectionText.text = "Connecting to lobby...";
+        connectionText.text = "Kết nối với phòng...";
     }
 
     /// <summary>
@@ -88,7 +88,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
     /// </summary>
     public void JoinRoom() {
         serverWindow.SetActive(false);
-        connectionText.text = "Joining room...";
+        connectionText.text = "Đang kết nối với Server...";
         PhotonNetwork.LocalPlayer.NickName = username.text;
         PlayerPrefs.SetString(nickNamePrefKey, username.text);
         RoomOptions roomOptions = new RoomOptions() {
@@ -98,7 +98,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
         if (PhotonNetwork.IsConnectedAndReady) {
             PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
         } else {
-            connectionText.text = "PhotonNetwork connection is not ready, try restart it.";
+            connectionText.text = "Kết nối PhotonNetwork chưa sẵn sàng, hãy thử khởi động lại.";
         }
     }
 
@@ -138,9 +138,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
         playerHealth.AddMessageEvent += AddMessage;
         sceneCamera.enabled = false;
         if (spawnTime == 0) {
-            AddMessage("Player " + PhotonNetwork.LocalPlayer.NickName + " Joined Game.");
+            AddMessage("Người chơi " + PhotonNetwork.LocalPlayer.NickName + " đã tham gia trò chơi.");
         } else {
-            AddMessage("Player " + PhotonNetwork.LocalPlayer.NickName + " Respawned.");
+            AddMessage("Người chơi " + PhotonNetwork.LocalPlayer.NickName + " đã hồi sinh.");
         }
     }
 
@@ -173,7 +173,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
     /// </summary>
     public override void OnPlayerLeftRoom(Player other) {
         if (PhotonNetwork.IsMasterClient) {
-            AddMessage("Player " + other.NickName + " Left Game.");
+            AddMessage("Người chơi " + other.NickName + " đã thoát game.");
         }
     }
 

@@ -90,7 +90,7 @@ public class PlayerHealth : MonoBehaviourPunCallbacks, IPunObservable {
         if (isDead) return;
         if (photonView.IsMine) {
             damaged = true;
-            currentHealth -= amount;
+            currentHealth -= amount; //amount: số lượng sát thương nhận được
             if (currentHealth <= 0) {
                 photonView.RPC("Death", RpcTarget.All, enemyName);
             }
@@ -113,7 +113,7 @@ public class PlayerHealth : MonoBehaviourPunCallbacks, IPunObservable {
         if (photonView.IsMine) {
             fpController.enabled = false;
             animator.SetTrigger("IsDead");
-            AddMessageEvent(PhotonNetwork.LocalPlayer.NickName + " was killed by " + enemyName + "!");
+            AddMessageEvent("Người chơi " + PhotonNetwork.LocalPlayer.NickName + " đã hạ gục người chơi " + enemyName + "!");
             RespawnEvent(respawnTime);
             StartCoroutine("DestoryPlayer", respawnTime);
         }
