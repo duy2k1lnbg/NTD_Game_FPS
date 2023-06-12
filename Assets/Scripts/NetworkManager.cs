@@ -46,7 +46,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
         }
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
-        connectionText.text = "Kết nối với phòng...";
+        connectionText.text = "Đang kết nối đến Server......";
     }
 
     /// <summary>
@@ -88,7 +88,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks {
     /// </summary>
     public void JoinRoom() {
         serverWindow.SetActive(false);
-        connectionText.text = "Đang kết nối với Server...";
+        connectionText.text = "Đang vào phòng...";
         PhotonNetwork.LocalPlayer.NickName = username.text;
         PlayerPrefs.SetString(nickNamePrefKey, username.text);
         RoomOptions roomOptions = new RoomOptions() {
