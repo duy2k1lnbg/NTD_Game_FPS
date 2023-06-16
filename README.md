@@ -18,5 +18,3 @@ Kết quả build game trên nền tảng linux
 ![Alt text](img/Build_game.png)
 Kết quả build game trên nền tảng thiết bị di động
 ![Alt text](img/Di_dong.png)
-1 Cảnh nổi bật trong game
-![Alt text](img/canh_1.jpg)
