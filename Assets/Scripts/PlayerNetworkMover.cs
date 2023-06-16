@@ -81,14 +81,14 @@ public class PlayerNetworkMover : MonoBehaviourPunCallbacks, IPunObservable {
             transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * smoothing);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * smoothing);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-            #else
-                Application.Quit();
-            #endif    
-        }    
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    #if UNITY_EDITOR
+        //    EditorApplication.isPlaying = false;
+        //    #else
+        //        Application.Quit();
+        //    #endif    
+        //}    
     }
 
     /// <summary>
