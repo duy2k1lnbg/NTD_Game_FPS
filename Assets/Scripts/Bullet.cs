@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
-
 	//xử lý va chạm
 	void OnTriggerEnter (Collider collider) {
 

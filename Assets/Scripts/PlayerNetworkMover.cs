@@ -25,6 +25,10 @@ public class PlayerNetworkMover : MonoBehaviourPunCallbacks, IPunObservable {
     private bool jump;
     private float smoothing = 10.0f;
 
+    private bool displayMenu = false;
+
+    bool cursorVisible = true;
+
     /// <summary>
     /// Move game objects to another layer.
     /// </summary>
@@ -81,14 +85,11 @@ public class PlayerNetworkMover : MonoBehaviourPunCallbacks, IPunObservable {
             transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * smoothing);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * smoothing);
         }
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    #if UNITY_EDITOR
-        //    EditorApplication.isPlaying = false;
-        //    #else
-        //        Application.Quit();
-        //    #endif    
-        //}    
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            displayMenu = !displayMenu; // Đảo ngược trạng thái của biến displayMenu
+        }
     }
 
     /// <summary>
@@ -117,6 +118,33 @@ public class PlayerNetworkMover : MonoBehaviourPunCallbacks, IPunObservable {
         } else {
             position = (Vector3)stream.ReceiveNext();
             rotation = (Quaternion)stream.ReceiveNext();
+        }
+    }
+
+
+    void OnGUI()
+    {
+        if (displayMenu)
+        {
+            // Hiển thị bảng lựa chọn ở đây
+            // Ví dụ: 
+            GUI.Box(new Rect(Screen.width / 2 - 480, Screen.height / 2 - 300, 960, 600), "Menu");
+            if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 50, 300, 100), "Chơi Tiếp"))
+            {
+                // Xử lý khi người chơi chọn chơi tiếp
+                // Đặt biến displayMenu thành false để ẩn bảng lựa chọn
+                Input.GetKeyDown(KeyCode.Escape);
+                displayMenu = false;
+            }
+            if (GUI.Button(new Rect(Screen.width / 2 - 150, Screen.height / 2 + 80, 300, 100), "Thoát"))
+            {
+                // Xử lý khi người chơi chọn thoát
+                #if UNITY_EDITOR
+                     UnityEditor.EditorApplication.isPlaying = false;
+                #else
+                     UnityEngine.Application.Quit();
+                #endif
+            }
         }
     }
 
